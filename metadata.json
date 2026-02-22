@@ -1,0 +1,5 @@
+{
+  "name": "Sistem Pembayaran Majlis Berbuka Puasa",
+  "description": "Aplikasi web untuk pembayaran Majlis Berbuka Puasa JIBG PASTI An-Nur menggunakan kaedah upload resit bank transfer.",
+  "requestFramePermissions": []
+}
