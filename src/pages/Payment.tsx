@@ -163,7 +163,7 @@ export default function Payment() {
 
     try {
       const base64File = await getBase64(file);
-      const totalAmount = (selectedFamily.adults * PRICING.ADULT) + (selectedFamily.children * PRICING.CHILD);
+      const totalAmount = PRICING.FAMILY;
       
       let extractedAmount = '';
       let initialStatus = 'MENUNGGU PENGESAHAN';
@@ -252,7 +252,7 @@ export default function Payment() {
     );
   }
 
-  const totalAmount = selectedFamily ? (selectedFamily.adults * PRICING.ADULT) + (selectedFamily.children * PRICING.CHILD) : 0;
+  const totalAmount = selectedFamily ? PRICING.FAMILY : 0;
 
   return (
     <div className="min-h-screen p-4 md:p-8 max-w-3xl mx-auto">
@@ -334,12 +334,8 @@ export default function Payment() {
                     
                     <div className="space-y-3 font-mono text-sm md:text-base">
                       <div className="flex justify-between items-center pb-3 border-b border-emerald-800/50">
-                        <span className="text-emerald-100">Dewasa ({selectedFamily.adults} × RM{PRICING.ADULT})</span>
-                        <span className="text-white">RM {selectedFamily.adults * PRICING.ADULT}</span>
-                      </div>
-                      <div className="flex justify-between items-center pb-3 border-b border-emerald-800/50">
-                        <span className="text-emerald-100">Kanak-kanak ({selectedFamily.children} × RM{PRICING.CHILD})</span>
-                        <span className="text-white">RM {selectedFamily.children * PRICING.CHILD}</span>
+                        <span className="text-emerald-100">Satu Keluarga</span>
+                        <span className="text-white">RM {PRICING.FAMILY}</span>
                       </div>
                       <div className="flex justify-between items-center pt-2 text-lg md:text-xl font-bold">
                         <span className="text-amber-400">Jumlah Bayaran</span>

@@ -1,9 +1,7 @@
 export const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQzjI5EqoSq-U9fsEWLZ0pdltQoqQMTuXFXjyGqOnSvLYRzj9AtezVt8U7hd2CdgtERglm6oGl388uY/pub?gid=1606983839&single=true&output=csv';
 
 export const PRICING = {
-  ADULT: 48,
-  CHILD: 18,
-  SENIOR: 30
+  FAMILY: 30
 };
 
 export const BANK_DETAILS = {
