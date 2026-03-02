@@ -94,18 +94,23 @@ export default function AdminDashboard() {
 
   const handleSendWhatsApp = () => {
     const unpaidCount = unpaidFamilies.length;
-    if (unpaidCount === 0) {
-      alert('Tiada keluarga yang belum membuat pembayaran.');
+    const paidCount = submissions.length;
+    
+    if (unpaidCount === 0 && paidCount === 0) {
+      alert('Tiada data keluarga dijumpai.');
       return;
     }
 
     let message = `*Laporan Pembayaran Majlis Berbuka Puasa*\n\n`;
-    message += `Jumlah Keluarga Belum Bayar: *${unpaidCount} keluarga*\n\n`;
-    message += `*Senarai Nama Keluarga:*\n`;
+    message += `✅ Jumlah Keluarga Telah Bayar: *${paidCount} keluarga*\n`;
+    message += `❌ Jumlah Keluarga Belum Bayar: *${unpaidCount} keluarga*\n\n`;
     
-    unpaidFamilies.forEach((family, index) => {
-      message += `${index + 1}. ${family.name} (Dewasa: ${family.adults}, Kanak-kanak: ${family.children})\n`;
-    });
+    if (unpaidCount > 0) {
+      message += `*Senarai Keluarga Belum Bayar:*\n`;
+      unpaidFamilies.forEach((family, index) => {
+        message += `${index + 1}. ${family.name}\n`;
+      });
+    }
 
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/60102537234?text=${encodedMessage}`;
